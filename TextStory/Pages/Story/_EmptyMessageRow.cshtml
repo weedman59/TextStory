@@ -1,0 +1,25 @@
+﻿@model TextStory.Models.Message
+@{ var i = Model.Sequence; }
+    <tr class="MsgRow">
+        <input asp-for="@Model.Story.Messages[i].ID" value="@Model.ID" type="hidden" />
+        <input asp-for="@Model.Story.Messages[i].Sequence" value="@Model.Sequence" type="hidden" class="seq" />
+        <input asp-for="@Model.Story.Messages[i].StoryId" value="@Model.StoryId" type="hidden" class="sId" />
+        <td>
+            <div class="form-group">
+                <textarea asp-for="@Model.Story.Messages[i].Content" class="text-md-left">@Model.Content</textarea>
+                <span asp-validation-for="@Model.Story.Messages[i].Content" class="text-danger"></span>
+            </div>
+        </td>
+        <td>
+            <div class="form-group">
+                <input asp-for="@Model.Story.Messages[i].PauseMins" value="@Model.PauseMins" class="form-control" />
+                <span asp-validation-for="@Model.Story.Messages[i].PauseMins" class="text-danger"></span>
+            </div>
+        </td>
+        <td>
+            <div class="form-group">
+                <input asp-for="@Model.Story.Messages[i].PauseSeconds" value="@Model.PauseSeconds" class="form-control" />
+                <span asp-validation-for="@Model.Story.Messages[i].PauseSeconds" class="text-danger"></span>
+            </div>
+        </td>
+    </tr>
